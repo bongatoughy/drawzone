@@ -1,12 +1,12 @@
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
 import React from "react";
 import { render } from "react-dom";
+import { Splash } from "./splash";
 
 const Root = () => {
   return (
     <Box>
-      <Typography>drawzone</Typography>
+      <Splash />
     </Box>
   );
 };
