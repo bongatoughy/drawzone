@@ -1,5 +1,8 @@
-import { Configuration } from "webpack";
+import { Configuration, DefinePlugin } from "webpack";
 import path from "path";
+import { config } from "dotenv";
+
+config();
 
 const webpackConfig = (): Configuration => {
   return {
@@ -17,6 +20,11 @@ const webpackConfig = (): Configuration => {
     devServer: {
       contentBase: path.resolve(__dirname, "public"),
     },
+    plugins: [
+      new DefinePlugin({
+        [`process.env.HOST`]: JSON.stringify(process.env.HOST),
+      }),
+    ],
   };
 };
 
