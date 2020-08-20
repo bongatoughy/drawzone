@@ -7,4 +7,11 @@ export const SCHEMA = {
       password        VARCHAR(255) NOT NULL
     );
   `,
+  REFRESH_TOKENS: `
+    CREATE TABLE IF NOT EXISTS
+    refresh_tokens (
+      token           VARCHAR(255) NOT NULL,
+      email           VARCHAR(255) UNIQUE NOT NULL
+    )
+  `,
 };
