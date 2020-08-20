@@ -1,0 +1,3 @@
+export const ACTIONS = {
+  ON_UPDATE_CURRENT_USER: "ON_UPDATE_CURRENT_USER",
+};

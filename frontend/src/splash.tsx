@@ -11,11 +11,10 @@ import React, { useState } from "react";
 
 import { ROUTES } from "./routes";
 
-export const Splash = () => {
+export const Splash = ({ currentUser, onUpdateCurrentUser }) => {
   const [isRegister, setIsRegister] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [currentUser, setCurrentUser] = useState(null);
   const [authError, setAuthError] = useState(null);
 
   const onToggleAuthSwitch = () => {
@@ -35,7 +34,7 @@ export const Splash = () => {
       const authResponse = isRegister
         ? await axios.post(ROUTES.REGISTER, { email, password })
         : await axios.post(ROUTES.LOGIN, { email, password });
-      setCurrentUser(authResponse.data);
+      onUpdateCurrentUser(authResponse.data);
       setAuthError(null);
     } catch (e) {
       setAuthError(e.message);
