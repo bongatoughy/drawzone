@@ -23,6 +23,7 @@ const webpackConfig = (): Configuration => {
     plugins: [
       new DefinePlugin({
         [`process.env.HOST`]: JSON.stringify(process.env.HOST),
+        [`process.env.NODE_ENV`]: JSON.stringify(process.env.NODE_ENV),
       }),
     ],
   };
