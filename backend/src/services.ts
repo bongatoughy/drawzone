@@ -33,7 +33,7 @@ const QUERIES = {
   `,
   DELETE_REFRESH_TOKEN: `
     DELETE FROM refresh_tokens
-    WHERE token = $1;
+    WHERE email = $1;
   `,
 };
 
@@ -78,8 +78,6 @@ export const retrieveRefreshTokenRecord = async (refreshToken) => {
   return email;
 };
 
-export const deleteRefreshToken = async (refreshToken) => {
-  const dbResponse = await pool.query(QUERIES.DELETE_REFRESH_TOKEN, [
-    refreshToken,
-  ]);
+export const deleteRefreshToken = async (email) => {
+  await pool.query(QUERIES.DELETE_REFRESH_TOKEN, [email]);
 };
