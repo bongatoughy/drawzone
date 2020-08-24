@@ -18,7 +18,16 @@ const webpackConfig = (): Configuration => {
       rules: [{ test: /\.tsx?$/, loader: "ts-loader" }],
     },
     devServer: {
+      index: "",
       contentBase: path.resolve(__dirname, "public"),
+      proxy: {
+        //@ts-ignore
+        context: () => true,
+        "/": {
+          target: "http://localhost:3001",
+          changeOrigin: true,
+        },
+      },
     },
     plugins: [
       new DefinePlugin({
