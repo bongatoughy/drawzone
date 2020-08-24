@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "./node_modules/.bin/webpack --watch",
+    "dev": "./node_modules/.bin/webpack-dev-server",
     "build": "./node_modules/.bin/webpack"
   },
   "keywords": [],
@@ -20,6 +20,7 @@
     "@types/webpack": "^4.41.21",
     "@types/webpack-dev-server": "^3.11.0",
     "axios": "^0.19.2",
+    "clsx": "^1.1.1",
     "dotenv": "^8.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
